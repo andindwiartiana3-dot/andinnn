@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Pernikahan Rama & Keysa</title>
+<meta name="description" content="Undangan pernikahan digital Rama & Keysa - 15 November 2026">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        tanah: { 50:'#f6efe6', 100:'#ead9c3', 200:'#d9bb96', 300:'#c49a6c', 400:'#a77a4d', 500:'#8a5f3a', 600:'#6e4a2d', 700:'#533823', 800:'#3a271a', 900:'#24170f' },
+        bata: { 300:'#e8935a', 400:'#d9733a', 500:'#c2571a', 600:'#a24415', 700:'#7f3410' },
+        emas: '#d9a441',
+        arang: '#14100d'
+      },
+      fontFamily: {
+        display: ['Cinzel','serif'],
+        serif2: ['"Cormorant Garamond"','serif'],
+        sans2: ['Lato','sans-serif']
+      }
+    }
+  }
+}
+</script>
+<style>
+  :root{
+    --pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect width='40' height='40' fill='%2314100d'/%3E%3Cpath d='M20 4 L36 20 L20 36 L4 20Z' fill='none' stroke='%23c2571a' stroke-width='2'/%3E%3Cpath d='M20 12 L28 20 L20 28 L12 20Z' fill='%23c2571a'/%3E%3Cpath d='M0 0 L8 0 L0 8Z M40 0 L32 0 L40 8Z M0 40 L8 40 L0 32Z M40 40 L32 40 L40 32Z' fill='%23d9a441'/%3E%3C/svg%3E");
+    --pattern-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 6 L54 30 L30 54 L6 30Z' fill='none' stroke='%23a77a4d' stroke-opacity='.18' stroke-width='1.5'/%3E%3Cpath d='M30 20 L40 30 L30 40 L20 30Z' fill='none' stroke='%23a77a4d' stroke-opacity='.18' stroke-width='1.5'/%3E%3C/svg%3E");
+  }
+  body{ font-family:'Lato',sans-serif; background:#f6efe6; color:#3a271a; }
+  body.locked{ overflow:hidden; }
+  .bg-motif{ background-color:#f6efe6; background-image:var(--pattern-light); }
+  .bg-motif-dark{ background-color:#14100d; background-image:var(--pattern); }
+  .band{ height:40px; background-image:var(--pattern); background-repeat:repeat-x; background-size:40px 40px; }
+  .band-sm{ height:20px; background-image:var(--pattern); background-repeat:repeat-x; background-size:20px 20px; }
+
+  /* Cover */
+  #cover{ transition:transform 1.2s cubic-bezier(.77,0,.18,1), opacity 1.2s; }
+  #cover.open{ transform:translateY(-100%); opacity:.4; }
+  .cover-bg{ background:linear-gradient(rgba(20,16,13,.78),rgba(20,16,13,.88)), var(--pattern); }
+
+  /* Reveal */
+  .reveal{ opacity:0; transform:translateY(40px); transition:opacity 1s ease, transform 1s ease; }
+  .reveal.left{ transform:translateX(-50px); }
+  .reveal.right{ transform:translateX(50px); }
+  .reveal.zoom{ transform:scale(.9); }
+  .paused .reveal{ opacity:0 !important; }
+  .reveal.show{ opacity:1; transform:none; }
+
+  .ornament{ display:flex; align-items:center; justify-content:center; gap:12px; }
+  .ornament::before,.ornament::after{ content:''; height:2px; width:70px; background:linear-gradient(90deg,transparent,#c2571a,transparent); }
+  .diamond{ width:10px; height:10px; background:#d9a441; transform:rotate(45deg); }
+
+  .card{ background:#fffaf2; border:1px solid #d9bb96; box-shadow:0 10px 30px -12px rgba(58,39,26,.35); position:relative; }
+  .card::before{ content:''; position:absolute; inset:8px; border:1px solid rgba(194,87,26,.35); pointer-events:none; }
+
+  .photo-frame{ padding:8px; background:#14100d; border:2px solid #d9a441; box-shadow:0 0 0 6px #14100d, 0 0 0 8px #c2571a; }
+
+  .count-box{ background:rgba(20,16,13,.55); border:1px solid #d9a441; backdrop-filter:blur(4px); }
+
+  .gallery-item{ overflow:hidden; cursor:pointer; }
+  .gallery-item img{ transition:transform .7s ease; }
+  .gallery-item:hover img{ transform:scale(1.08); }
+
+  .btn{ display:inline-flex; align-items:center; gap:8px; padding:.7rem 1.5rem; font-family:'Cinzel',serif; letter-spacing:.08em; font-size:.8rem; transition:all .3s; border:1px solid #c2571a; }
+  .btn-primary{ background:#c2571a; color:#fff; }
+  .btn-primary:hover{ background:#7f3410; border-color:#7f3410; transform:translateY(-2px); }
+  .btn-outline{ color:#c2571a; background:transparent; }
+  .btn-outline:hover{ background:#c2571a; color:#fff; transform:translateY(-2px); }
+
+  input,textarea,select{ width:100%; padding:.75rem 1rem; background:#fffaf2; border:1px solid #c49a6c; outline:none; transition:border .3s, box-shadow .3s; }
+  input:focus,textarea:focus,select:focus{ border-color:#c2571a; box-shadow:0 0 0 3px rgba(194,87,26,.2); }
+
+  #music-btn{ animation:spin 6s linear infinite; animation-play-state:paused; }
+  #music-btn.playing{ animation-play-state:running; }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  @keyframes floaty{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-8px);} }
+  .floaty{ animation:floaty 3s ease-in-out infinite; }
+
+  .toast{ position:fixed; left:50%; bottom:90px; transform:translate(-50%,30px); background:#14100d; color:#d9a441; border:1px solid #d9a441; padding:.6rem 1.2rem; opacity:0; transition:all .4s; z-index:100; pointer-events:none; font-size:.85rem; }
+  .toast.show{ opacity:1; transform:translate(-50%,0); }
+
+  ::-webkit-scrollbar{ width:8px; }
+  ::-webkit-scrollbar-track{ background:#14100d; }
+  ::-webkit-scrollbar-thumb{ background:#c2571a; }
+</style>
+</head>
+
+<body class="locked">
+
+<!-- ================= COVER ================= -->
+<section id="cover" class="fixed inset-0 z-[90] cover-bg flex flex-col items-center justify-center text-center px-6 text-tanah-100">
+  <div class="absolute top-0 inset-x-0 band"></div>
+  <div class="absolute bottom-0 inset-x-0 band"></div>
+
+  <p class="font-sans2 tracking-[.4em] text-xs md:text-sm text-emas uppercase mb-6">The Wedding Of</p>
+  <div class="ornament mb-6"><span class="diamond"></span></div>
+  <h1 class="font-display text-5xl md:text-7xl text-white leading-tight">Rama<br><span class="text-bata-400 text-3xl md:text-4xl font-serif2 italic">&amp;</span><br>Keysa</h1>
+  <p class="font-serif2 text-xl md:text-2xl mt-6 text-tanah-200">15 November 2026</p>
+
+  <div class="mt-8 max-w-sm font-sans2 text-sm text-tanah-200/90">
+    <p>Kepada Yth. Bapak/Ibu/Saudara/i</p>
+    <p id="guest-name" class="font-display text-2xl text-emas mt-2 mb-1">Tamu Undangan</p>
+    <p class="text-xs opacity-80">*Mohon maaf apabila ada kesalahan penulisan nama dan gelar</p>
+  </div>
+
+  <button id="open-btn" class="btn btn-primary mt-10 !px-8 !py-3 floaty">
+    <i class="fa-regular fa-envelope-open"></i> Buka Undangan
+  </button>
+</section>
+
+<!-- ================= MUSIC ================= -->
+<audio id="bgm" loop preload="auto">
+  <!-- Ganti dengan file musik Anda sendiri, mis. musik.mp3 -->
+  <source src="musik.mp3" type="audio/mpeg">
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" type="audio/mpeg">
+</audio>
+<button id="music-btn" class="fixed bottom-5 right-5 z-[80] w-12 h-12 rounded-full bg-arang border-2 border-emas text-emas shadow-xl hidden items-center justify-center" aria-label="Putar/Jeda musik">
+  <i id="music-icon" class="fa-solid fa-compact-disc text-xl"></i>
+</button>
+<div id="toast" class="toast"></div>
+
+<main id="main" class="paused">
+
+<!-- ================= HERO ================= -->
+<header class="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden bg-motif-dark">
+  <img src="galeri-1.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80'" alt="" class="absolute inset-0 w-full h-full object-cover opacity-30">
+  <div class="absolute inset-0 bg-gradient-to-b from-arang/70 via-arang/40 to-arang/90"></div>
+  <div class="absolute top-0 inset-x-0 band"></div>
+  <div class="relative px-6 py-24">
+    <p class="reveal font-sans2 tracking-[.4em] text-xs text-emas uppercase">Kami Mengundang Anda</p>
+    <h2 class="reveal font-display text-5xl md:text-8xl mt-6 leading-tight">Rama <span class="font-serif2 italic text-bata-400">&amp;</span> Keysa</h2>
+    <div class="reveal ornament my-6"><span class="diamond"></span></div>
+    <p class="reveal font-serif2 text-2xl md:text-3xl text-tanah-100">Minggu, 15 November 2026</p>
+    <p class="reveal font-sans2 text-sm mt-2 text-tanah-200"><i class="fa-solid fa-location-dot text-bata-400 mr-1"></i>Pasuruan, Jawa Timur</p>
+    <a href="#mempelai" class="reveal inline-block mt-10 text-emas floaty"><i class="fa-solid fa-chevron-down text-2xl"></i></a>
+  </div>
+</header>
+
+<!-- ================= QUOTE ================= -->
+<section class="bg-motif py-20 px-6 text-center">
+  <div class="max-w-2xl mx-auto">
+    <div class="reveal ornament mb-6"><span class="diamond"></span></div>
+    <p class="reveal font-serif2 italic text-xl md:text-2xl leading-relaxed text-tanah-800">
+      "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri, supaya kamu merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang."
+    </p>
+    <p class="reveal font-display text-sm tracking-widest text-bata-500 mt-6">QS. AR-RUM : 21</p>
+  </div>
+</section>
+
+<!-- ================= MEMPELAI ================= -->
+<section id="mempelai" class="relative bg-motif-dark text-tanah-100 py-24 px-6">
+  <div class="absolute top-0 inset-x-0 band-sm"></div>
+  <div class="max-w-5xl mx-auto text-center">
+    <p class="reveal font-sans2 tracking-[.4em] text-xs text-emas uppercase">Mempelai</p>
+    <h2 class="reveal font-display text-3xl md:text-4xl text-white mt-3">Pa'ssura Pangngan</h2>
+    <p class="reveal font-serif2 italic text-lg text-tanah-200 mt-4 max-w-xl mx-auto">Dengan memohon rahmat dan ridho Tuhan Yang Maha Esa, kami bermaksud menyelenggarakan pernikahan putra-putri kami:</p>
+
+    <div class="grid md:grid-cols-2 gap-16 mt-16 items-start">
+      <!-- Pria -->
+      <div class="reveal left">
+        <div class="photo-frame w-60 h-80 mx-auto overflow-hidden">
+          <img src="mempelai-pria.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80'" alt="Mempelai Pria" class="w-full h-full object-cover">
+        </div>
+        <h3 class="font-display text-3xl text-emas mt-10">Rama</h3>
+        <p class="font-sans2 text-tanah-200 mt-3 text-sm">Putra dari</p>
+        <p class="font-serif2 text-xl text-white">Bapak Budi &amp; Ibu Siti</p>
+        <a href="https://instagram.com/pengantinbaru_" target="_blank" rel="noopener" class="btn btn-outline !text-emas !border-emas hover:!bg-emas hover:!text-arang mt-5">
+          <i class="fa-brands fa-instagram"></i> @pengantinbaru_
+        </a>
+      </div>
+      <!-- Wanita -->
+      <div class="reveal right">
+        <div class="photo-frame w-60 h-80 mx-auto overflow-hidden">
+          <img src="mempelai-wanita.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80'" alt="Mempelai Wanita" class="w-full h-full object-cover">
+        </div>
+        <h3 class="font-display text-3xl text-emas mt-10">Keysa</h3>
+        <p class="font-sans2 text-tanah-200 mt-3 text-sm">Putri dari</p>
+        <p class="font-serif2 text-xl text-white">Bapak Agus &amp; Ibu Ayu</p>
+        <a href="https://instagram.com/pengantinbaru_" target="_blank" rel="noopener" class="btn btn-outline !text-emas !border-emas hover:!bg-emas hover:!text-arang mt-5">
+          <i class="fa-brands fa-instagram"></i> @pengantinbaru_
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="absolute bottom-0 inset-x-0 band-sm"></div>
+</section>
+
+<!-- ================= COUNTDOWN ================= -->
+<section class="relative py-24 px-6 text-center text-white overflow-hidden">
+  <img src="galeri-2.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1600&q=80'" alt="" class="absolute inset-0 w-full h-full object-cover">
+  <div class="absolute inset-0 bg-arang/80"></div>
+  <div class="relative max-w-3xl mx-auto">
+    <p class="reveal font-sans2 tracking-[.4em] text-xs text-emas uppercase">Menuju Hari Bahagia</p>
+    <h2 class="reveal font-display text-3xl md:text-4xl mt-3 mb-10">Hitung Mundur</h2>
+    <div class="reveal zoom grid grid-cols-4 gap-3 md:gap-6">
+      <div class="count-box py-5 md:py-8"><div id="cd-d" class="font-display text-3xl md:text-5xl text-emas">00</div><div class="text-[10px] md:text-xs tracking-widest mt-2 uppercase">Hari</div></div>
+      <div class="count-box py-5 md:py-8"><div id="cd-h" class="font-display text-3xl md:text-5xl text-emas">00</div><div class="text-[10px] md:text-xs tracking-widest mt-2 uppercase">Jam</div></div>
+      <div class="count-box py-5 md:py-8"><div id="cd-m" class="font-display text-3xl md:text-5xl text-emas">00</div><div class="text-[10px] md:text-xs tracking-widest mt-2 uppercase">Menit</div></div>
+      <div class="count-box py-5 md:py-8"><div id="cd-s" class="font-display text-3xl md:text-5xl text-emas">00</div><div class="text-[10px] md:text-xs tracking-widest mt-2 uppercase">Detik</div></div>
+    </div>
+    <p id="cd-msg" class="reveal font-serif2 italic text-xl mt-8 text-tanah-100"></p>
+    <a id="save-date" href="#" target="_blank" rel="noopener" class="reveal btn btn-primary mt-8"><i class="fa-regular fa-calendar-plus"></i> Simpan ke Kalender</a>
+  </div>
+</section>
+
+<!-- ================= ACARA ================= -->
+<section id="acara" class="bg-motif py-24 px-6">
+  <div class="max-w-5xl mx-auto text-center">
+    <p class="reveal font-sans2 tracking-[.4em] text-xs text-bata-500 uppercase">Rangkaian Acara</p>
+    <h2 class="reveal font-display text-3xl md:text-4xl text-tanah-800 mt-3">Waktu &amp; Lokasi</h2>
+    <div class="reveal ornament mt-5"><span class="diamond"></span></div>
+
+    <div class="grid md:grid-cols-2 gap-8 mt-14">
+      <!-- Akad -->
+      <div class="reveal left card p-10">
+        <div class="w-16 h-16 mx-auto rounded-full bg-arang text-emas flex items-center justify-center text-2xl border-2 border-bata-500"><i class="fa-solid fa-ring"></i></div>
+        <h3 class="font-display text-2xl text-bata-600 mt-5">Akad Nikah</h3>
+        <p class="font-serif2 text-xl mt-4">Minggu, 15 November 2026</p>
+        <p class="font-sans2 mt-1"><i class="fa-regular fa-clock text-bata-500 mr-2"></i>Pukul 16.00 WIB - Selesai</p>
+        <p class="font-sans2 mt-4 text-sm text-tanah-600">Pasuruan, Jawa Timur</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=Pasuruan,+Jawa+Timur" target="_blank" rel="noopener" class="btn btn-primary mt-6"><i class="fa-solid fa-map-location-dot"></i> Petunjuk Arah</a>
+      </div>
+      <!-- Resepsi -->
+      <div class="reveal right card p-10">
+        <div class="w-16 h-16 mx-auto rounded-full bg-arang text-emas flex items-center justify-center text-2xl border-2 border-bata-500"><i class="fa-solid fa-champagne-glasses"></i></div>
+        <h3 class="font-display text-2xl text-bata-600 mt-5">Resepsi</h3>
+        <p class="font-serif2 text-xl mt-4">Minggu, 15 November 2026</p>
+        <p class="font-sans2 mt-1"><i class="fa-regular fa-clock text-bata-500 mr-2"></i>Pukul 18.00 WIB - Selesai</p>
+        <p class="font-sans2 mt-4 text-sm text-tanah-600">Pasuruan, Jawa Timur</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=Pasuruan,+Jawa+Timur" target="_blank" rel="noopener" class="btn btn-primary mt-6"><i class="fa-solid fa-map-location-dot"></i> Petunjuk Arah</a>
+      </div>
+    </div>
+
+    <div class="reveal zoom mt-10 border-4 border-arang overflow-hidden shadow-xl">
+      <iframe title="Peta Lokasi" loading="lazy" class="w-full h-72 md:h-96 grayscale-[30%]" src="https://www.google.com/maps?q=Pasuruan,+Jawa+Timur&output=embed"></iframe>
+    </div>
+    <p class="reveal font-serif2 italic text-tanah-600 mt-6">Merupakan suatu kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.</p>
+  </div>
+</section>
+
+<!-- ================= GALERI ================= -->
+<section id="galeri" class="relative bg-motif-dark py-24 px-6 text-center">
+  <div class="absolute top-0 inset-x-0 band-sm"></div>
+  <div class="max-w-5xl mx-auto">
+    <p class="reveal font-sans2 tracking-[.4em] text-xs text-emas uppercase">Our Moments</p>
+    <h2 class="reveal font-display text-3xl md:text-4xl text-white mt-3">Galeri Foto</h2>
+    <div class="reveal ornament mt-5"><span class="diamond"></span></div>
+    <div id="gallery" class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 mt-12"></div>
+  </div>
+  <div class="absolute bottom-0 inset-x-0 band-sm"></div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" class="fixed inset-0 z-[95] bg-black/90 hidden items-center justify-center p-4">
+  <button id="lb-close" class="absolute top-5 right-5 text-white text-3xl" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+  <button id="lb-prev" class="absolute left-3 md:left-8 text-white text-3xl" aria-label="Sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
+  <img id="lb-img" src="" alt="" class="max-h-[88vh] max-w-full border-4 border-emas">
+  <button id="lb-next" class="absolute right-3 md:right-8 text-white text-3xl" aria-label="Berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
+</div>
+
+<!-- ================= AMPLOP DIGITAL ================= -->
+<section id="hadiah" class="bg-motif py-24 px-6">
+  <div class="max-w-4xl mx-auto text-center">
+    <p class="reveal font-sans2 tracking-[.4em] text-xs text-bata-500 uppercase">Tanda Kasih</p>
+    <h2 class="reveal font-display text-3xl md:text-4xl text-tanah-800 mt-3">Amplop Digital</h2>
+    <div class="reveal ornament mt-5"><span class="diamond"></span></div>
+    <p class="reveal font-serif2 italic text-lg text-tanah-600 mt-6 max-w-xl mx-auto">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika Anda ingin memberikan tanda kasih, dapat melalui:</p>
+
+    <div class="grid md:grid-cols-2 gap-8 mt-12">
+      <div class="reveal left card p-8">
+        <i class="fa-solid fa-building-columns text-3xl text-bata-500"></i>
+        <h3 class="font-display text-xl mt-3 text-tanah-800">Bank BCA</h3>
+        <p id="rek-bca" class="font-display text-2xl tracking-wider text-bata-600 mt-4">8830 1234 56</p>
+        <p class="font-sans2 text-sm mt-1">a.n. Rama</p>
+        <button class="btn btn-outline mt-5 copy-btn" data-copy="8830123456"><i class="fa-regular fa-copy"></i> Salin No. Rekening</button>
+      </div>
+      <div class="reveal right card p-8">
+        <i class="fa-solid fa-building-columns text-3xl text-bata-500"></i>
+        <h3 class="font-display text-xl mt-3 text-tanah-800">Bank Mandiri</h3>
+        <p id="rek-mandiri" class="font-display text-2xl tracking-wider text-bata-600 mt-4">1430 0098 7654 3</p>
+        <p class="font-sans2 text-sm mt-1">a.n. Keysa</p>
+        <button class="btn btn-outline mt-5 copy-btn" data-copy="1430009876543"><i class="fa-regular fa-copy"></i> Salin No. Rekening</button>
+      </div>
+    </div>
+
+    <div class="reveal zoom card p-8 mt-8 max-w-sm mx-auto">
+      <i class="fa-solid fa-qrcode text-3xl text-bata-500"></i>
+      <h3 class="font-display text-xl mt-3 text-tanah-800">QRIS</h3>
+      <div class="bg-white p-3 mt-4 border border-tanah-200">
+        <img id="qris-img" src="qris.png"
+             onerror="this.onerror=null;this.src='https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=QRIS-RAMA-KEYSA-CONTOH'"
+             alt="QRIS" class="w-full max-w-[240px] mx-auto">
+      </div>
+      <p class="font-sans2 text-xs mt-3 text-tanah-600">Scan den
